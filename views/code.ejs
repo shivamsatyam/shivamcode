@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Add code</title>
+		<link rel="icon" type="image/ico/" href="/img/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon/" href="img/favicon.ico">
+
+	<style>
+		.code_container{
+			display:flex;
+			width:100%;
+		}
+
+		#html_editor{
+			height:75vh;
+			flex:1;	
+			font-size:1.4rem;
+		}
+		#css_editor{
+			height:75vh;
+			flex:1;	
+			font-size:1.4rem;
+		}
+		#js_editor{
+			height:75vh;
+			flex:1;	
+			font-size:1.4rem;
+		}
+		.code_header{
+			flex:1;
+		}
+		.code_header h3{
+font-size: 1.3rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: white;
+    background-color: #615f73;
+    padding: 10px;
+		}
+
+		.code-action{
+    background-color: black;
+    display: flex;
+    justify-content: flex-end;
+    padding: 7px 17px;
+		}
+
+		.code-action button{
+			    border: 4px solid #ff0303;
+    padding: 4px;
+    font-weight: bold;
+    font-family: sans-serif;
+    border-radius: 8px;
+    color: #ff0303;
+    transition:0.3s;
+    margin-left:17px;
+		}
+
+		.code-action button:hover{
+			color: #fff;
+			background-color:#ff0303;
+		}
+
+	</style>
+	<link rel="stylesheet" type="text/css" href="/css/min.css">
+</head>
+<body>
+	<%-include('navbar.ejs')%>
+
+
+	<div class="code-action">
+		<button id="run_code">Run code</button>
+		<button id="save_code">Save</button>
+	</div>
+	<div class="code_container">
+
+		<div class="code_header">
+			<h3>Html</h3>	
+			<div id="html_editor"></div>
+		</div>
+
+		<div class="code_header">
+			<h3>Css</h3>	
+			
+			<div id="css_editor"></div>
+		</div>
+
+			<div class="code_header">
+			<h3>Javascript</h3>	
+			
+		<div id="js_editor"></div>
+		</div>
+
+		
+	</div>
+
+<iframe srcdoc="" id="iframe">
+	
+</iframe>
+
+<script type="text/javascript" src="/src/ace.js"></script>
+<script type="text/javascript" src="/src/ext-language_tools.js"></script>
+
+
+<script type="text/javascript">
+	var editor_language_mode = 'html'
+
+	var editor_html = ace.edit('html_editor')
+	var langTools = ace.require('ace/ext/language_tools')
+	editor_html.setOption({
+		enableBasicAutocompletion:true,
+		enableSnippets:true,
+		enableLiveAutocompletion:false
+	})
+	editor_html.setTheme("ace/theme/terminal")
+	editor_html.setShowPrintMargin(false)
+	editor_html.getSession().setMode(`ace/mode/${editor_language_mode}`)
+
+
+
+	var editor_css = ace.edit('css_editor')
+	editor_css.setTheme("ace/theme/terminal")
+	editor_css.setShowPrintMargin(false)
+	editor_css.getSession().setMode(`ace/mode/css`)
+
+
+	var ediotr_css = ace.edit('css_editor')
+	editor_css.setTheme("ace/theme/terminal")
+	editor_css.setShowPrintMargin(false)
+	editor_css.getSession().setMode(`ace/mode/css`)
+
+
+	var editor_js = ace.edit('js_editor')
+	editor_js.setTheme("ace/theme/terminal")
+	editor_js.setShowPrintMargin(false)
+	editor_js.getSession().setMode(`ace/mode/javascript`)
+
+
+
+
+
+</script>
+
+
+<script src="/js/code.js"></script>
+
+
+<script type="text/javascript">
+
+
+
+// 
+// submit_btn.addEventListener('click',(e) => {
+//   	add_description = description.value
+//   	add_title = title.value
+// 
+//   	if (add_description=="" || add_title=="") {
+//   		alert('Please enter the title and the description')	
+//   	}else{
+//   		let ace = document.getElementsByClassName('ace_line')
+// 
+//   		let code_data = ''
+//   		Array.from(ace).forEach((item) => {
+//   		  code_data+=item.innerText
+//   		})
+// 
+//   		let all_data = [add_title,add_description,code_data,language_select.value]
+// 
+//   		let xhr = new XMLHttpRequest()
+//   		xhr.open('POST','/addpost')
+// 
+//   		xhr.setRequestHeader('Content-Type','application/json')
+//   		xhr.send(JSON.stringify(all_data))
+// 
+//   		ace.innerHTML = ""
+//   		title.value = ""
+//   		description.value = ""
+// 
+// 
+//   		window.location.href = '/'
+//   	}
+// 
+// 
+// });
+
+
+</script>
+
+
+</body>
+</html>

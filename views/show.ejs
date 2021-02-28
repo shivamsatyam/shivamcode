@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="/js/highlight.js"></script>
+	<script>hljs.initHighlightingOnLoad()</script>
+	<link rel="stylesheet" href="/css/highlight.css">
+	<link rel="stylesheet" type="text/css" href="/css/min.css">
+	<link rel="icon" type="image/ico/" href="/img/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon/" href="img/favicon.ico">
+
+	<title>show data</title>
+</head>
+
+<style>
+		.code_header{
+			flex:1;
+		}
+		.code_header h3{
+font-size: 1.3rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: white;
+    background-color: #615f73;
+    padding: 10px;
+		}
+
+</style>
+
+<body>
+	<%-include('navbar.ejs')%>
+
+<pre style="background-color:black;">
+
+	<div class="code_header">
+			<h3>Html</h3>	
+	</div>			
+	<code class="html" style="font-size: 1.2rem; height:50vh; overflow: scroll;"><%=data.html_code%></code>
+
+
+
+	<div class="code_header">
+			<h3>css</h3>	
+	</div>
+	<code class="css" style="font-size: 1.2rem; height:50vh; overflow: scroll;"><%=data.css_code%></code>
+
+
+
+	<div class="code_header">
+			<h3>Javascript</h3>	
+	</div>
+	<code class="javascript" style="font-size: 1.2rem; height:50vh; overflow: scroll;"><%=data.js_code%></code>
+
+
+</pre>
+
+</body>
+</html>
